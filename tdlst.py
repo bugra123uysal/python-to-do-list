@@ -6,11 +6,14 @@ pencere.geometry("900x600")
 def göref_yap():
     """ kullanıcının yazdığı metni alır """
     kullanıc_al=kullanıcı.get()
+   
+  
 
     """girilen yeni kelimeyi  alt alta yazdirmak """
     mgor['text'] += '\n'+kullanıc_al
 
-    
+def konrtolet():
+     """ check box a basınca şü yazı çoksın """
 
 başlık=tk.Label(pencere,text="to-do list")
 başlık.pack()
@@ -34,6 +37,10 @@ dugmec.pack(pady=5)
 mgor=tk.Label(pencere,text="")
 mgor.pack(pady=30, padx=30) 
 
+
+""" check ekleme """
+checetm=tk.Checkbutton(pencere)
+checetm.pack()
 
 
 pencere.mainloop()
