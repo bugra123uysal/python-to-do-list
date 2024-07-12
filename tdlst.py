@@ -5,6 +5,7 @@ pencere.geometry("900x600")
 
 def göref_yap():
 
+
     """ kullanıcının yazdığı metni alır """
     kullanıc_al=kullanıcı.get()
     """girilen yeni kelimeyi  alt alta yazdirmak 
@@ -12,13 +13,26 @@ def göref_yap():
     """
     """ görev silmek """
     var=tk.BooleanVar()
-    """ check ekleme """
-    checetm=tk.Checkbutton(pencere,text=kullanıc_al , variable=var)
-    checetm.pack()
 
+    """ check ekleme """
     
 
-
+    def görev_tmm():
+         if var.get():
+              
+              checetm.config(font=("Helvetica", 10, "overstrike")) # yazıın üzerinin   çizme
+         else:
+              
+              
+              checetm.config(font=("Helvetica", 10, "normal")) # normal yazı tipi
+         
+    checetm=tk.Checkbutton(pencere,text=kullanıc_al , variable=var, command=görev_tmm)
+    checetm.pack()
+              
+                      
+        
+    
+    
 başlık=tk.Label(pencere,text="to-do list")
 başlık.pack()
 """ yapılacakları yazılacak yer"""
@@ -30,10 +44,7 @@ kullanıcı.pack()
 """ buttona bastığında göref_yap çalışır """
 dugmea=tk.Button(pencere,text="ekle", command=göref_yap )
 dugmea.pack(pady=5)
-
-dugmeb=tk.Button(pencere,text="görevi tamamala" )
-dugmeb.pack(pady=5)
-
+""" sil buttonu """
 dugmec=tk.Button(pencere,text="sil")
 dugmec.pack(pady=5)
 
